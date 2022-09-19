@@ -76,6 +76,7 @@ func CopyFiles(d []fs.DirEntry, targetPath string, copyFunc copyFunc) {
 		return
 	}
 
+	filepath.WalkDir(filepath.WalkFunc)
 	for _, f := range d {
 		_, err := copyFunc(f.Name(), path.Join(targetPath, f.Name()))
 		if err != nil {
